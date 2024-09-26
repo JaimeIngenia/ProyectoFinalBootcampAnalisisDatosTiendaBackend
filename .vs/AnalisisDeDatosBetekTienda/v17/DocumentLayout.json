@@ -1,0 +1,108 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|c:\\users\\asus\\source\\repos\\analisisdedatosbetektienda\\analisisdedatosbetektienda\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|solutionrelative:analisisdedatosbetektienda\\controllers\\categoriacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|c:\\users\\asus\\source\\repos\\analisisdedatosbetektienda\\analisisdedatosbetektienda\\controllers\\rolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|solutionrelative:analisisdedatosbetektienda\\controllers\\rolcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|c:\\users\\asus\\source\\repos\\analisisdedatosbetektienda\\analisisdedatosbetektienda\\viewmodels\\categoria\\getallcategoriaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|solutionrelative:analisisdedatosbetektienda\\viewmodels\\categoria\\getallcategoriaviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|c:\\users\\asus\\source\\repos\\analisisdedatosbetektienda\\analisisdedatosbetektienda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|solutionrelative:analisisdedatosbetektienda\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|c:\\users\\asus\\source\\repos\\analisisdedatosbetektienda\\analisisdedatosbetektienda\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F83257DD-4589-4CBD-8226-0245360FB516}|AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj|solutionrelative:analisisdedatosbetektienda\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 551,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetAllCategoriaViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\ViewModels\\Categoria\\GetAllCategoriaViewModel.cs",
+              "RelativeDocumentMoniker": "AnalisisDeDatosBetekTienda\\ViewModels\\Categoria\\GetAllCategoriaViewModel.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\ViewModels\\Categoria\\GetAllCategoriaViewModel.cs",
+              "RelativeToolTip": "AnalisisDeDatosBetekTienda\\ViewModels\\Categoria\\GetAllCategoriaViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T13:48:46.393Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoriaController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\Controllers\\CategoriaController.cs",
+              "RelativeDocumentMoniker": "AnalisisDeDatosBetekTienda\\Controllers\\CategoriaController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\Controllers\\CategoriaController.cs",
+              "RelativeToolTip": "AnalisisDeDatosBetekTienda\\Controllers\\CategoriaController.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAgwBAAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-24T13:29:11.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\appsettings.json",
+              "RelativeDocumentMoniker": "AnalisisDeDatosBetekTienda\\appsettings.json",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\appsettings.json",
+              "RelativeToolTip": "AnalisisDeDatosBetekTienda\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-20T13:15:57.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\Program.cs",
+              "RelativeDocumentMoniker": "AnalisisDeDatosBetekTienda\\Program.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\Program.cs",
+              "RelativeToolTip": "AnalisisDeDatosBetekTienda\\Program.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACwAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T03:17:11.517Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 409,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RolController.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\Controllers\\RolController.cs",
+              "RelativeDocumentMoniker": "AnalisisDeDatosBetekTienda\\Controllers\\RolController.cs",
+              "ToolTip": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\Controllers\\RolController.cs",
+              "RelativeToolTip": "AnalisisDeDatosBetekTienda\\Controllers\\RolController.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAAAMwFcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-20T13:46:12.463Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

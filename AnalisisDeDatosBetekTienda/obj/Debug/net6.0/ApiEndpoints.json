@@ -1,0 +1,74 @@
+[
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.CategoriaController",
+    "Method": "GetAllCategoria",
+    "RelativePath": "api/Categoria/GetAllCategoria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.CategoriaController",
+    "Method": "SaveCategoria",
+    "RelativePath": "api/Categoria/SaveCategoria",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "saveCategoriaViewModel",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Categoria.SaveCategoriaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.RolController",
+    "Method": "GetAllRoles",
+    "RelativePath": "api/Rol/GetAllRoles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.RolController",
+    "Method": "GuardarRol",
+    "RelativePath": "api/Rol/GuardarRol",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "rolViewModel",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Rol.RolViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[AnalisisDeDatosBetekTienda.WeatherForecast, AnalisisDeDatosBetekTienda, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
