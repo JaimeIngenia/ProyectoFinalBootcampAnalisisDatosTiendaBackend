@@ -26,6 +26,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.ProductoController",
+    "Method": "GetAllProductos",
+    "RelativePath": "api/Producto/GetAllProductos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.ProductoController",
+    "Method": "SaveProducto",
+    "RelativePath": "api/Producto/SaveProducto",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Producto.SaveProductoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.RolController",
     "Method": "GetAllRoles",
     "RelativePath": "api/Rol/GetAllRoles",

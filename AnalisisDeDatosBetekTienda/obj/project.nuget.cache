@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NYOO2eVXHIWPoWflqicDYAs867vnsK1VncSYUBNlhEr+vMrcsoSB5TAIY87MmQBDb6wsDwIxeio6U5Rsd59L9Q==",
+  "dgSpecHash": "jI1GXtxJgI2Am4Jm6XOapex6oXEmdIeZr/j0nnhE4DcwgC5wgJqOD1Mq15WbBRIWAJnreJ8wyNE4vHKzT7dsSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj",
+  "projectFilePath": "C:\\Users\\ASUS\\source\\repos\\Analisis de datos v2\\ProyectoFinalBootcampAnalisisDatosTiendaBackend\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ASUS\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ASUS\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

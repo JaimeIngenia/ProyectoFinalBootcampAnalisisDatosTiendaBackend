@@ -2539,11 +2539,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj",
+      "projectUniqueName": "C:\\Users\\ASUS\\source\\repos\\Analisis de datos v2\\ProyectoFinalBootcampAnalisisDatosTiendaBackend\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj",
       "projectName": "AnalisisDeDatosBetekTienda",
-      "projectPath": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj",
+      "projectPath": "C:\\Users\\ASUS\\source\\repos\\Analisis de datos v2\\ProyectoFinalBootcampAnalisisDatosTiendaBackend\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda.csproj",
       "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ASUS\\source\\repos\\AnalisisDeDatosBetekTienda\\AnalisisDeDatosBetekTienda\\obj\\",
+      "outputPath": "C:\\Users\\ASUS\\source\\repos\\Analisis de datos v2\\ProyectoFinalBootcampAnalisisDatosTiendaBackend\\AnalisisDeDatosBetekTienda\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
