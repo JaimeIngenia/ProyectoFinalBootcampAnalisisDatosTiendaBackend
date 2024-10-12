@@ -10,7 +10,8 @@ namespace AnalisisDeDatosBetekTienda.Models
             Productos = new HashSet<Producto>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Nombre { get; set; } = null!;
 
         public virtual ICollection<Producto> Productos { get; set; }

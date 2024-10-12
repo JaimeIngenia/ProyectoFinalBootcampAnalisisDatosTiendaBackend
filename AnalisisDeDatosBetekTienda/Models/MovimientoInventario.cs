@@ -5,11 +5,12 @@ namespace AnalisisDeDatosBetekTienda.Models
 {
     public partial class MovimientoInventario
     {
-        public int Id { get; set; }
-        public int ProductoId { get; set; }
+        //public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid ProductoId { get; set; }
         public int Cantidad { get; set; }
-        public int EmpleadoId { get; set; }
-        public int Tipomovimientoid { get; set; }
+        public Guid EmpleadoId { get; set; }
+        public Guid Tipomovimientoid { get; set; }
         public DateTime Fecha { get; set; }
 
         public virtual Empleado Empleado { get; set; } = null!;

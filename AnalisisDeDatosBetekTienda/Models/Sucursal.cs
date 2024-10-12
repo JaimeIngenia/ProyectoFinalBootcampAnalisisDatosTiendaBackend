@@ -10,7 +10,8 @@ namespace AnalisisDeDatosBetekTienda.Models
             Usuarios = new HashSet<Usuario>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Region { get; set; } = null!;
         public string Direccion { get; set; } = null!;
         public string Telefono { get; set; } = null!;

@@ -10,7 +10,8 @@ namespace AnalisisDeDatosBetekTienda.Models
             Empleados = new HashSet<Empleado>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public TimeSpan HoraInicio { get; set; }
         public TimeSpan HoraFin { get; set; }
         public int DiaSemana { get; set; }

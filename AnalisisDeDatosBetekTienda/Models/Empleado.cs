@@ -12,11 +12,12 @@ namespace AnalisisDeDatosBetekTienda.Models
             Venta = new HashSet<Ventum>();
         }
 
-        public int Id { get; set; }
+        //public int Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Nombre { get; set; } = null!;
         public string Apellido { get; set; } = null!;
-        public int HorarioId { get; set; }
-        public int PuestoId { get; set; }
+        public Guid HorarioId { get; set; }
+        public Guid PuestoId { get; set; }
 
         public virtual Horario Horario { get; set; } = null!;
         public virtual Puesto Puesto { get; set; } = null!;

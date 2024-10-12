@@ -17,60 +17,63 @@ namespace AnalisisDeDatosBetekTienda.Controllers
             _DBContext = context;
         }
 
-
-        //// Método para guardar un nuevo rol
-        //[HttpPost("guardarRol")]
-        //public IActionResult guardarRol([FromBody] Rol rol)
+        //[HttpPost]
+        //[Route("GuardarRol")]
+        //public async Task<IActionResult> GuardarRol([FromBody] RolViewModel rolViewModel)
         //{
-        //    try
+        //    if (ModelState.IsValid)
         //    {
-        //        if (rol == null)
+        //        var rol = new Rol
         //        {
-        //            return BadRequest("Datos de rol inválidos.");
-        //        }
+        //            Nombre = rolViewModel.Nombre
+        //        };
 
-        //        // Agregar el nuevo rol al contexto
         //        _DBContext.Rols.Add(rol);
-
-        //        // Guardar cambios en la base de datos
-        //        _DBContext.SaveChanges();
-
-        //        return Ok("Rol guardado exitosamente.");
+        //        await _DBContext.SaveChangesAsync();
+        //        return Ok(new { message = "Rol guardado exitosamente" });
         //    }
-        //    catch (Exception ex)
-        //    {
-        //        // Manejo de excepciones
-        //        return StatusCode(StatusCodes.Status500InternalServerError, $"Error guardando el rol: {ex.Message}");
-        //    }
+        //    return BadRequest(ModelState);
         //}
 
-        [HttpPost]
-        [Route("GuardarRol")]
-        public async Task<IActionResult> GuardarRol([FromBody] RolViewModel rolViewModel)
-        {
-            if (ModelState.IsValid)
-            {
-                var rol = new Rol
-                {
-                    Nombre = rolViewModel.Nombre
-                };
 
-                _DBContext.Rols.Add(rol);
-                await _DBContext.SaveChangesAsync();
-                return Ok(new { message = "Rol guardado exitosamente" });
-            }
-            return BadRequest(ModelState);
-        }
 
-        // Método para Traer todos los roles
         //[HttpGet]
         //[Route("GetAllRoles")]
         //public async Task<IActionResult> GetAllRoles()
         //{
-        //    var roles = await _DBContext.Rols.ToListAsync();
+        //    var roles = await _DBContext.Rols
+        //        .Select(r => new RolViewModelGetAll
+        //        {
+        //            Id = r.Id,
+        //            Nombre = r.Nombre
+        //        })
+        //        .ToListAsync();
+
         //    return Ok(roles);
         //}
 
+        // Método para guardar un nuevo rol
+        [HttpPost]
+        [Route("GuardarRol")]
+        public async Task<IActionResult> GuardarRol([FromBody] RolViewModel rolViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var rol = new Rol
+            {
+                Id = Guid.NewGuid(), // Generar un nuevo GUID para el rol
+                Nombre = rolViewModel.Nombre
+            };
+
+            _DBContext.Rols.Add(rol);
+            await _DBContext.SaveChangesAsync();
+            return Ok(new { message = "Rol guardado exitosamente" });
+        }
+
+        // Método para obtener todos los roles
         [HttpGet]
         [Route("GetAllRoles")]
         public async Task<IActionResult> GetAllRoles()
@@ -85,7 +88,6 @@ namespace AnalisisDeDatosBetekTienda.Controllers
 
             return Ok(roles);
         }
-
 
 
 
