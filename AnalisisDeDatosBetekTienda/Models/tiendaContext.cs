@@ -622,6 +622,10 @@ namespace AnalisisDeDatosBetekTienda.Models
 
                 entity.Property(e => e.Precio).HasColumnName("precio");
 
+                entity.Property(e => e.Imagen) // Mapea la columna imagen
+                    .HasMaxLength(1000)
+                    .HasColumnName("imagen");
+
                 //entity.Property(e => e.Stock).HasColumnName("stock");
 
                 entity.HasOne(d => d.Categoria)
@@ -695,13 +699,41 @@ namespace AnalisisDeDatosBetekTienda.Models
                     .HasDefaultValueSql("NEWID()") // Usar GUID
                     .HasColumnName("id");
 
-                entity.Property(e => e.EmpleadoId).HasColumnName("empleadoId");
+                // Configuración de otros campos
+                entity.Property(e => e.Nombre)
+                    .IsRequired()
+                    .HasMaxLength(100) // Asegúrate de que la longitud sea adecuada
+                    .HasColumnName("nombre");
 
-                //entity.Property(e => e.Password)
-                //    .HasMaxLength(45)
-                //    .HasColumnName("password");
+                entity.Property(e => e.Contrasena)
+                    .IsRequired()
+                    .HasColumnName("contrasena"); // Cambia el nombre de columna si es necesario
 
-                entity.Property(e => e.RolId).HasColumnName("rolId");
+                entity.Property(e => e.EmpleadoId)
+                    .HasColumnName("empleadoId");
+
+                entity.Property(e => e.RolId)
+                    .HasColumnName("rolId");
+
+                // Nuevo campo obligatorio para el correo
+                entity.Property(e => e.Correo)
+                    .IsRequired() // Hacerlo obligatorio
+                    .HasColumnName("correo"); // Asegúrate de que el nombre de columna sea correcto
+
+                // Nuevo campo booleano para validación de inicio de sesión
+                entity.Property(e => e.ValidationLogin)
+                     .IsRequired(false)
+                    .HasColumnName("validationLogin");
+
+                // Nuevo campo para mantener el tiempo de sesión activa
+                entity.Property(e => e.TiempoSesionActivo)
+                    .IsRequired(false)
+                    .HasColumnName("tiempoSesionActivo");
+
+                // Nuevo campo opcional para la imagen del usuario
+                entity.Property(e => e.Imagen)
+                    .IsRequired(false) // Campo opcional
+                    .HasColumnName("imagen");
 
                 entity.HasOne(d => d.Empleado)
                     .WithMany(p => p.Usuarios)

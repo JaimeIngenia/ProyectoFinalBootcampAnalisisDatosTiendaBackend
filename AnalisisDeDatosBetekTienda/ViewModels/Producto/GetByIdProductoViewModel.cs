@@ -11,6 +11,7 @@ namespace AnalisisDeDatosBetekTienda.ViewModels.Producto
             public string Descripcion { get; set; }
             public int Precio { get; set; }
             public GetAllCategoriaViewModel Categoria { get; set; }  // Reutilizando GetAllCategoriaViewModel
-        
+            public string? Imagen { get; set; }
+
     }
 }

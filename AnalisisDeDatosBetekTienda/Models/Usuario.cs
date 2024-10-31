@@ -13,6 +13,12 @@ namespace AnalisisDeDatosBetekTienda.Models
         public Guid RolId { get; set; }
         public Guid SucursalId { get; set; }
 
+        // Campos adicionales
+        public string Correo { get; set; } = null!; // Campo obligatorio
+        public bool? ValidationLogin { get; set; } // Campo booleano para validación
+        public TimeSpan? TiempoSesionActivo { get; set; } // Tiempo de sesión activa
+        public string? Imagen { get; set; } // Campo opcional para la imagen
+
         public virtual Empleado Empleado { get; set; } = null!;
         public virtual Rol Rol { get; set; } = null!;
         public virtual Sucursal Sucursal { get; set; } = null!;

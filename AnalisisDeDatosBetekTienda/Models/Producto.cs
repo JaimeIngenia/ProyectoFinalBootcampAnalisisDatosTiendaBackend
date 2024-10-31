@@ -18,6 +18,7 @@ namespace AnalisisDeDatosBetekTienda.Models
         public int Precio { get; set; }
         //public int CategoriaId { get; set; }
         public Guid CategoriaId { get; set; }
+        public string? Imagen { get; set; }
 
         public virtual Categorium Categoria { get; set; } = null!;
         public virtual ICollection<DetalleVentum> DetalleVenta { get; set; }

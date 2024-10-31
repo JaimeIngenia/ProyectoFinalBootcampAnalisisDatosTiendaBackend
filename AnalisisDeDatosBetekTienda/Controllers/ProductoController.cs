@@ -4,6 +4,7 @@ using AnalisisDeDatosBetekTienda.ViewModels.Producto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace AnalisisDeDatosBetekTienda.Controllers
 {
@@ -42,7 +43,8 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                 Nombre = model.Nombre,
                 Descripcion = model.Descripcion,
                 Precio = model.Precio,
-                CategoriaId = model.CategoriaId
+                CategoriaId = model.CategoriaId,
+                Imagen = model.Imagen
             };
 
             _DBContext.Productos.Add(producto);
@@ -64,7 +66,8 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     Nombre = p.Nombre,
                     Descripcion = p.Descripcion,
                     Precio = p.Precio,
-                    CategoriaNombre = p.Categoria.Nombre // Obtener el nombre de la categoría
+                    CategoriaNombre = p.Categoria.Nombre,
+                    Imagen = p.Imagen
                 })
                 .ToListAsync();
 
@@ -126,6 +129,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
             producto.Descripcion = model.Descripcion;
             producto.Precio = model.Precio;
             producto.CategoriaId = model.CategoriaId;
+            producto.Imagen = model.Imagen;
 
             // Guardar los cambios en la base de datos
             await _DBContext.SaveChangesAsync();

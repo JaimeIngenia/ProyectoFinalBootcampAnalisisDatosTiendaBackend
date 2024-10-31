@@ -11,8 +11,6 @@ namespace AnalisisDeDatosBetekTienda.Models
             Usuarios = new HashSet<Usuario>();
             Venta = new HashSet<Ventum>();
         }
-
-        //public int Id { get; set; }
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Nombre { get; set; } = null!;
         public string Apellido { get; set; } = null!;
