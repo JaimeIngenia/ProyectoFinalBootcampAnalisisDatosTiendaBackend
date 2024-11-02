@@ -7,7 +7,9 @@
         public string Correo { get; set; }
         public string Contrasena { get; set; }
         public bool? ValidationLogin { get; set; }
-        public string Imagen { get; set; } // Opcional
+        public string? Imagen { get; set; } // Opcional
+
+        public Guid? EmpleadoId { get; set; }
     }
 
 }

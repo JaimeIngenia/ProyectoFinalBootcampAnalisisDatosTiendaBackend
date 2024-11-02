@@ -117,7 +117,8 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     Correo = u.Correo,
                     Contrasena = u.Contrasena,
                     ValidationLogin = u.ValidationLogin,
-                    Imagen = u.Imagen // Opcional
+                    Imagen = u.Imagen, // Opcional
+                    EmpleadoId = u.EmpleadoId
                 })
                 .FirstOrDefaultAsync();
 
