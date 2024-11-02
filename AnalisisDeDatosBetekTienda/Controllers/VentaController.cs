@@ -32,7 +32,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
 
             var venta = new Ventum
             {
-                Id = Guid.NewGuid(),
+                Id = model.Id,
                 ClienteId = model.ClienteId,
                 EmpleadoId = model.EmpleadoId,
                 Fecha = model.Fecha
