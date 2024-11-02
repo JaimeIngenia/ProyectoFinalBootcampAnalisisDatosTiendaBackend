@@ -26,6 +26,58 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.ClienteController",
+    "Method": "GetAllClientes",
+    "RelativePath": "api/Cliente/GetAllClientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.ClienteController",
+    "Method": "SaveCliente",
+    "RelativePath": "api/Cliente/SaveCliente",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Cliente.AnalisisDeDatosBetekTienda.ViewModels.Cliente.SaveClienteViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.DetalleVentaController",
+    "Method": "GetAllDetalleVentas",
+    "RelativePath": "api/DetalleVenta/GetAllDetalleVentas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.DetalleVentaController",
+    "Method": "SaveDetalleVenta",
+    "RelativePath": "api/DetalleVenta/SaveDetalleVenta",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.DetalleVenta.SaveDetalleVentaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.EmpleadoController",
     "Method": "GetAllEmpleados",
     "RelativePath": "api/Empleado/GetAllEmpleados",
@@ -262,6 +314,22 @@
   },
   {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.UsuarioController",
+    "Method": "Login",
+    "RelativePath": "api/Usuario/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Usuario.LoginViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.UsuarioController",
     "Method": "SaveUsuario",
     "RelativePath": "api/Usuario/SaveUsuario",
     "HttpMethod": "POST",
@@ -271,6 +339,53 @@
       {
         "Name": "model",
         "Type": "AnalisisDeDatosBetekTienda.ViewModels.Usuario.SaveUsuarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.UsuarioController",
+    "Method": "UpdateUsuarioLogin",
+    "RelativePath": "api/Usuario/UpdateUsuarioLogin/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Usuario.GetUsuarioSimpleByIdAccesViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.VentaController",
+    "Method": "GetAllVentas",
+    "RelativePath": "api/Venta/GetAllVentas",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.VentaController",
+    "Method": "SaveVenta",
+    "RelativePath": "api/Venta/SaveVenta",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Venta.SaveVentaViewModel",
         "IsRequired": true
       }
     ],

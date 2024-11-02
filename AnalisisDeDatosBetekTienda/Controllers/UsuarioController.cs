@@ -86,6 +86,9 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     Id = u.Id,
                     Nombre = u.Nombre,
                     Correo = u.Correo,
+                    Contrasena = u.Contrasena,
+                    ValidationLogin = u.ValidationLogin,
+                    TiempoSesionActivo = u.TiempoSesionActivo,
                     EmpleadoId = u.EmpleadoId,
                     RolId = u.RolId,
                     SucursalId = u.SucursalId,
@@ -112,6 +115,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     Id = u.Id,
                     Nombre = u.Nombre,
                     Correo = u.Correo,
+                    Contrasena = u.Contrasena,
                     ValidationLogin = u.ValidationLogin,
                     Imagen = u.Imagen // Opcional
                 })
@@ -127,6 +131,65 @@ namespace AnalisisDeDatosBetekTienda.Controllers
         }
 
 
+
+        //Login
+
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> Login([FromBody] LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Buscar el usuario en la base de datos por correo y contraseña
+            var usuario = await _DBContext.Usuarios
+                .FirstOrDefaultAsync(u => u.Correo == model.Correo && u.Contrasena == model.Contrasena);
+
+            // Verificar si el usuario existe y si las credenciales coinciden
+            if (usuario == null)
+            {
+                return Unauthorized(new { message = "Correo o contraseña incorrectos" });
+            }
+
+            // Actualizar el campo validationLogin a true y guardar los cambios
+            usuario.ValidationLogin = true;
+            _DBContext.Usuarios.Update(usuario);
+            await _DBContext.SaveChangesAsync();
+
+            return Ok(new { message = "Inicio de sesión exitoso", usuario });
+        }
+
+        // Get Usuario By Id
+
+        [HttpPut]
+        [Route("UpdateUsuarioLogin/{id}")]
+        public async Task<IActionResult> UpdateUsuarioLogin(Guid id, [FromBody] GetUsuarioSimpleByIdAccesViewModel model)
+        {
+            // Verificar si el modelo es válido
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Buscar el usuario en la base de datos por su ID
+            var usuario = await _DBContext.Usuarios.FindAsync(id);
+
+            // Verificar si el usuario existe
+            if (usuario == null)
+            {
+                return NotFound(new { message = "Usuario no encontrado" });
+            }
+
+        
+            usuario.ValidationLogin = model.ValidationLogin ?? usuario.ValidationLogin; // Mantiene valor actual si es null
+
+            // Guardar los cambios en la base de datos
+            await _DBContext.SaveChangesAsync();
+
+            return Ok(new { message = "Usuario actualizado exitosamente" });
+        }
 
 
 
