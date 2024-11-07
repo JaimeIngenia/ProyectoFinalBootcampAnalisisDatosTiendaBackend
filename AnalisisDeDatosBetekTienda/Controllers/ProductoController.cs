@@ -182,7 +182,8 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     {
                         Id = p.Categoria.Id,
                         Nombre = p.Categoria.Nombre
-                    }
+                    },
+                    Imagen = p.Imagen
                 })
                 .FirstOrDefaultAsync(p => p.Id == id);
 

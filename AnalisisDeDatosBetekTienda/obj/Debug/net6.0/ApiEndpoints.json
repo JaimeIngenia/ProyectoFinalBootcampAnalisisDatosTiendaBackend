@@ -130,6 +130,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.MovimientoInventarioController",
+    "Method": "GetAllMovimientoInventario",
+    "RelativePath": "api/MovimientoInventario/GetAllMovimientoInventario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.MovimientoInventarioController",
+    "Method": "SaveMovimientoInventario",
+    "RelativePath": "api/MovimientoInventario/SaveMovimientoInventario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.MovimientoInventario.SaveMovimientoInventarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.ProductoController",
     "Method": "DeleteProducto",
     "RelativePath": "api/Producto/DeleteProducto/{id}",
@@ -281,6 +307,32 @@
       {
         "Name": "model",
         "Type": "AnalisisDeDatosBetekTienda.ViewModels.Sucrusal.SaveSucursalViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.TipoMovimientoController",
+    "Method": "GetAllTipoMovimiento",
+    "RelativePath": "api/TipoMovimiento/GetAllTipoMovimiento",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.TipoMovimientoController",
+    "Method": "SaveTipoMovimiento",
+    "RelativePath": "api/TipoMovimiento/SaveTipoMovimiento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "saveTipoMovimientoViewModel",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.TipoMovimiento.SaveTipoMovimientoViewModel",
         "IsRequired": true
       }
     ],
