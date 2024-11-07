@@ -104,6 +104,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.FidelizacionController",
+    "Method": "GetAllFidelizaciones",
+    "RelativePath": "api/Fidelizacion/GetAllFidelizaciones",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.FidelizacionController",
+    "Method": "SaveFidelizacion",
+    "RelativePath": "api/Fidelizacion/SaveFidelizacion",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Fidelizacion.SaveFidelizacionViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.HorarioController",
     "Method": "GetAllHorarios",
     "RelativePath": "api/Horario/GetAllHorarios",
@@ -124,6 +150,32 @@
       {
         "Name": "model",
         "Type": "AnalisisDeDatosBetekTienda.ViewModels.Horario.SaveHorarioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.MembresiaController",
+    "Method": "GetAllMembresias",
+    "RelativePath": "api/Membresia/GetAllMembresias",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.MembresiaController",
+    "Method": "SaveMembresia",
+    "RelativePath": "api/Membresia/SaveMembresia",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Membresia.SaveMembresiaViewModel",
         "IsRequired": true
       }
     ],
