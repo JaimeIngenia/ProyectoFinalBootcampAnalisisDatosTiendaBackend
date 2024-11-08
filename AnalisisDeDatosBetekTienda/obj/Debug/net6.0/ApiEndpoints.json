@@ -148,6 +148,22 @@
   },
   {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.DetalleVentaController",
+    "Method": "GetDetalleVentaByIdSimple",
+    "RelativePath": "api/DetalleVenta/GetDetalleVentaByIdSimple/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.DetalleVentaController",
     "Method": "SaveDetalleVenta",
     "RelativePath": "api/DetalleVenta/SaveDetalleVenta",
     "HttpMethod": "POST",
@@ -577,6 +593,42 @@
   },
   {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.VentaController",
+    "Method": "DeleteVenta",
+    "RelativePath": "api/Venta/DeleteVenta/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.VentaController",
+    "Method": "GetAllSimplify",
+    "RelativePath": "api/Venta/GetAllSimplify",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[AnalisisDeDatosBetekTienda.ViewModels.Venta.VentaSimplifyViewModel, AnalisisDeDatosBetekTienda, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.VentaController",
     "Method": "GetAllVentas",
     "RelativePath": "api/Venta/GetAllVentas",
     "HttpMethod": "GET",
@@ -584,6 +636,32 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.VentaController",
+    "Method": "GetById",
+    "RelativePath": "api/Venta/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Venta.GetVentaByIdViewModel",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.VentaController",
@@ -596,6 +674,27 @@
       {
         "Name": "model",
         "Type": "AnalisisDeDatosBetekTienda.ViewModels.Venta.SaveVentaViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.VentaController",
+    "Method": "UpdateVenta",
+    "RelativePath": "api/Venta/UpdateVenta/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Venta.UpdateVentaViewModel",
         "IsRequired": true
       }
     ],

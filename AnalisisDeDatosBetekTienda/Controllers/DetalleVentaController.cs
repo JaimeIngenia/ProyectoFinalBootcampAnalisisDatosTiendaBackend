@@ -231,6 +231,39 @@ namespace AnalisisDeDatosBetekTienda.Controllers
 
 
 
+        // GetById Simple
+
+
+        // Método para obtener un detalle de venta por ID con información simplificada
+        [HttpGet]
+        [Route("GetDetalleVentaByIdSimple/{id}")]
+        public async Task<IActionResult> GetDetalleVentaByIdSimple(Guid id)
+        {
+            // Buscar el detalle de venta en la base de datos por su ID
+            var detalleVenta = await _DBContext.DetalleVenta
+                .Where(d => d.Id == id)
+                .Select(d => new GetByIdDetalleVentaViewModelSimple
+                {
+                    Id = d.Id,
+                    Cantidad = d.Cantidad,
+                    ProductoId = d.ProductoId,
+                    VentaId = d.VentaId
+                })
+                .FirstOrDefaultAsync();
+
+            // Verificar si el detalle de venta existe
+            if (detalleVenta == null)
+            {
+                return NotFound(new { message = "Detalle de venta no encontrado" });
+            }
+
+            return Ok(detalleVenta);
+        }
+
+
+
+
+
 
 
 
