@@ -1,5 +1,6 @@
 ﻿using AnalisisDeDatosBetekTienda.Models;
 using AnalisisDeDatosBetekTienda.ViewModels.Categoria;
+using AnalisisDeDatosBetekTienda.ViewModels.Cliente;
 using AnalisisDeDatosBetekTienda.ViewModels.Producto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -195,6 +196,10 @@ namespace AnalisisDeDatosBetekTienda.Controllers
 
             return Ok(producto);
         }
+
+     
+
+
 
 
 

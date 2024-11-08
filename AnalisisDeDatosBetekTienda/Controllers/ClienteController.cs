@@ -67,6 +67,96 @@ namespace AnalisisDeDatosBetekTienda.Controllers
         }
 
 
+        // GetClientByID
+
+        [HttpGet]
+        [Route("GetClientById/{id}")]
+        public async Task<IActionResult> GetClientById(Guid id)
+        {
+            // Buscar el cliente en la base de datos por su ID
+            var cliente = await _DBContext.Clientes
+                .Select(c => new GetByIdClienteViewModel
+                {
+                    Id = c.Id,
+                    Nombre = c.Nombre,
+                    Apellido = c.Apellido,
+                    Email = c.Email,
+                    Telefono = c.Telefono,
+                })
+                .FirstOrDefaultAsync(c => c.Id == id);
+
+            // Verificar si el cliente existe
+            if (cliente == null)
+            {
+                return NotFound(new { message = "Cliente no encontrado" });
+            }
+
+            return Ok(cliente);
+        }
+
+
+        // Update Client
+
+
+        // Controllers/ClienteController.cs
+
+        [HttpPut]
+        [Route("UpdateCliente/{id}")]
+        public async Task<IActionResult> UpdateCliente(Guid id, [FromBody] SaveClienteViewModel model)
+        {
+            // Verificar si el modelo es válido
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Buscar el cliente en la base de datos por su ID
+            var cliente = await _DBContext.Clientes.FindAsync(id);
+
+            // Verificar si el cliente existe
+            if (cliente == null)
+            {
+                return NotFound(new { message = "Cliente no encontrado" });
+            }
+
+            // Actualizar las propiedades del cliente
+            cliente.Nombre = model.Nombre;
+            cliente.Apellido = model.Apellido;
+            cliente.Email = model.Email;
+            cliente.Telefono = model.Telefono;
+
+            // Guardar los cambios en la base de datos
+            await _DBContext.SaveChangesAsync();
+
+            return Ok(new { message = "Cliente actualizado exitosamente" });
+        }
+
+
+
+
+        // Método para eliminar un cliente
+        [HttpDelete]
+        [Route("DeleteClient/{id}")]
+        public async Task<IActionResult> DeleteClient(Guid id)
+        {
+            // Buscar el cliente en la base de datos por su ID
+            var cliente = await _DBContext.Clientes.FindAsync(id);
+
+            // Verificar si el cliente existe
+            if (cliente == null)
+            {
+                return NotFound(new { message = "Cliente no encontrado" });
+            }
+
+            // Eliminar el cliente de la base de datos
+            _DBContext.Clientes.Remove(cliente);
+            await _DBContext.SaveChangesAsync();
+
+            return Ok(new { message = "Cliente eliminado exitosamente" });
+        }
+
+
+
 
 
 

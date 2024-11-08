@@ -118,8 +118,116 @@ namespace AnalisisDeDatosBetekTienda.Controllers
         }
 
 
+        //GetById
+
+        [HttpGet]
+        [Route("GetDetalleVentaById/{id}")]
+        public async Task<IActionResult> GetDetalleVentaById(Guid id)
+        {
+            var detalleVenta = await _DBContext.DetalleVenta
+                .Include(d => d.Producto)
+                .ThenInclude(p => p.Categoria)
+                .Include(d => d.Venta)
+                .ThenInclude(v => v.Cliente)
+                .Include(d => d.Venta)
+                .ThenInclude(v => v.Empleado)
+                .ThenInclude(e => e.Puesto)
+                .Select(d => new GetByIdDetalleVentaViewModel
+                {
+                    Id = d.Id,
+                    Cantidad = d.Cantidad,
+                    Fecha = d.Venta.Fecha,
+                    Producto = new ProductoViewModelVersionOne
+                    {
+                        Id = d.Producto.Id,
+                        Nombre = d.Producto.Nombre,
+                        Descripcion = d.Producto.Descripcion,
+                        Precio = d.Producto.Precio,
+                        Categoria = new CategoriaViewModelVersionOne
+                        {
+                            Id = d.Producto.Categoria.Id,
+                            Nombre = d.Producto.Categoria.Nombre
+                        }
+                    },
+                    Venta = new VentaViewModelVersionOne
+                    {
+                        Id = d.Venta.Id,
+                        Fecha = d.Venta.Fecha,
+                        Cliente = new ClienteViewModelVersionOne
+                        {
+                            Id = d.Venta.Cliente.Id,
+                            Nombre = d.Venta.Cliente.Nombre,
+                            Apellido = d.Venta.Cliente.Apellido,
+                            Telefono = d.Venta.Cliente.Telefono,
+                            Email = d.Venta.Cliente.Email
+                        },
+                        Empleado = new EmpleadoViewModelVersionOne
+                        {
+                            Id = d.Venta.Empleado.Id,
+                            Nombre = d.Venta.Empleado.Nombre,
+                            Apellido = d.Venta.Empleado.Apellido,
+                            HorarioId = d.Venta.Empleado.HorarioId,
+                            Puesto = d.Venta.Empleado.Puesto.Nombre
+                        }
+                    }
+                })
+                .FirstOrDefaultAsync(d => d.Id == id);
+
+            if (detalleVenta == null)
+            {
+                return NotFound(new { message = "Detalle de venta no encontrado" });
+            }
+
+            return Ok(detalleVenta);
+        }
 
 
+        //Update
+
+        [HttpPut]
+        [Route("UpdateDetalleVenta/{id}")]
+        public async Task<IActionResult> UpdateDetalleVenta(Guid id, [FromBody] UpdateDetalleVentaViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var detalleVenta = await _DBContext.DetalleVenta.FindAsync(id);
+            if (detalleVenta == null)
+            {
+                return NotFound(new { message = "Detalle de venta no encontrado" });
+            }
+
+            // Actualizar los valores
+            detalleVenta.Cantidad = model.Cantidad;
+            detalleVenta.ProductoId = model.ProductoId;
+            detalleVenta.VentaId = model.VentaId;
+
+            await _DBContext.SaveChangesAsync();
+            return Ok(new { message = "Detalle de venta actualizado exitosamente" });
+        }
+
+
+
+        // Delete
+
+
+        [HttpDelete]
+        [Route("DeleteDetalleVenta/{id}")]
+        public async Task<IActionResult> DeleteDetalleVenta(Guid id)
+        {
+            var detalleVenta = await _DBContext.DetalleVenta.FindAsync(id);
+            if (detalleVenta == null)
+            {
+                return NotFound(new { message = "Detalle de venta no encontrado" });
+            }
+
+            _DBContext.DetalleVenta.Remove(detalleVenta);
+            await _DBContext.SaveChangesAsync();
+
+            return Ok(new { message = "Detalle de venta eliminado exitosamente" });
+        }
 
 
 
