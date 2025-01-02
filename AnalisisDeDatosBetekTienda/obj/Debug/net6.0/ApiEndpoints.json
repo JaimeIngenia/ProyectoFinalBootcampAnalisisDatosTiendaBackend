@@ -132,6 +132,32 @@
   },
   {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.DetalleVentaController",
+    "Method": "GetAllDetalleVentaSpecialById",
+    "RelativePath": "api/DetalleVenta/GetAllDetalleVentaSpecialById/{ventaId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ventaId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.DetalleVentaController",
+    "Method": "GetAllVentumSpecial",
+    "RelativePath": "api/DetalleVenta/GetAllVentumSpecial",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.DetalleVentaController",
     "Method": "GetDetalleVentaById",
     "RelativePath": "api/DetalleVenta/GetDetalleVentaById/{id}",
     "HttpMethod": "GET",

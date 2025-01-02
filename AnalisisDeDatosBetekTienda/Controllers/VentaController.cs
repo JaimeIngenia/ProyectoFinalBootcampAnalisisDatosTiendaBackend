@@ -161,22 +161,43 @@ namespace AnalisisDeDatosBetekTienda.Controllers
         //  Delete VENTA
 
 
+        //[HttpDelete]
+        //[Route("DeleteVenta/{id}")]
+        //public async Task<IActionResult> DeleteVenta(Guid id)
+        //{
+        //    var venta = await _DBContext.Venta.FindAsync(id);
+        //    if (venta == null)
+        //    {
+        //        return NotFound(new { message = "Venta no encontrada" });
+        //    }
+
+        //    _DBContext.Venta.Remove(venta);
+        //    await _DBContext.SaveChangesAsync();
+
+        //    return Ok(new { message = "Venta eliminada exitosamente" });
+        //}
+
         [HttpDelete]
         [Route("DeleteVenta/{id}")]
         public async Task<IActionResult> DeleteVenta(Guid id)
         {
+            // Buscar la venta por ID
             var venta = await _DBContext.Venta.FindAsync(id);
             if (venta == null)
             {
                 return NotFound(new { message = "Venta no encontrada" });
             }
 
+            // Buscar y eliminar los detalles de venta asociados a la venta
+            var detallesVenta = _DBContext.DetalleVenta.Where(d => d.VentaId == id).ToList();
+            _DBContext.DetalleVenta.RemoveRange(detallesVenta);
+
+            // Eliminar la venta
             _DBContext.Venta.Remove(venta);
             await _DBContext.SaveChangesAsync();
 
-            return Ok(new { message = "Venta eliminada exitosamente" });
+            return Ok(new { message = "Venta y detalles de venta eliminados exitosamente" });
         }
-
 
 
 

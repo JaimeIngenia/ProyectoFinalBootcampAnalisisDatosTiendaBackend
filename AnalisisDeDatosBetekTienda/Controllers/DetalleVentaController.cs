@@ -1,6 +1,7 @@
 ﻿using AnalisisDeDatosBetekTienda.Models;
 using AnalisisDeDatosBetekTienda.ViewModels.DetalleVenta;
 using AnalisisDeDatosBetekTienda.ViewModels.DetalleVenta.PruebaGetAll;
+using AnalisisDeDatosBetekTienda.ViewModels.Producto;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -261,9 +262,63 @@ namespace AnalisisDeDatosBetekTienda.Controllers
         }
 
 
+         
+
+        // DetalleVenta Special GetAll
+        [HttpGet]
+        [Route("GetAllVentumSpecial")]
+        public async Task<IActionResult> GetAllVentumSpecial()
+        {
+            // Obtener todos los DetalleVentum y proyectar los datos necesarios
+            var detallesVenta = await _DBContext.DetalleVenta
+                .Select(d => new DetalleVentaSpecialViewModel
+                {
+                    Id = d.Id,
+                    VentaId = d.VentaId,
+                    Cantidad = d.Cantidad,
+                    Producto = new ProductoSpecialViewModel
+                    {
+                        Precio = d.Producto.Precio,
+                        Nombre = d.Producto.Nombre
+                    }
+                })
+                .ToListAsync();
+
+            return Ok(detallesVenta);
+        }
 
 
+        // Special Get All Byid
 
+        // DetalleVentaController.cs
+        [HttpGet]
+        [Route("GetAllDetalleVentaSpecialById/{ventaId}")]
+        public async Task<IActionResult> GetAllDetalleVentaSpecialById(Guid ventaId)
+        {
+            // Filtrar los detalles de venta que coincidan con el ventaId proporcionado
+            var detallesVenta = await _DBContext.DetalleVenta
+                .Where(d => d.VentaId == ventaId)
+                .Select(d => new DetalleVentaSpecialViewModel
+                {
+                    Id = d.Id,
+                    VentaId = d.VentaId,
+                    Cantidad = d.Cantidad,
+                    Producto = new ProductoSpecialViewModel
+                    {
+                        Precio = d.Producto.Precio,
+                        Nombre = d.Producto.Nombre
+                    }
+                })
+                .ToListAsync();
+
+            // Verificar si se encontraron resultados
+            if (detallesVenta == null || !detallesVenta.Any())
+            {
+                return NotFound(new { message = "No se encontraron detalles de venta para el ventaId proporcionado" });
+            }
+
+            return Ok(detallesVenta);
+        }
 
 
 
