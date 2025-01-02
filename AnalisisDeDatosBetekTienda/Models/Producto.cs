@@ -20,8 +20,12 @@ namespace AnalisisDeDatosBetekTienda.Models
         public Guid CategoriaId { get; set; }
         public string? Imagen { get; set; }
 
+        public int? StockActual { get; set; } // Nueva propiedad
+
         public virtual Categorium Categoria { get; set; } = null!;
         public virtual ICollection<DetalleVentum> DetalleVenta { get; set; }
+
+        public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }
         public virtual ICollection<MovimientoInventario> MovimientoInventarios { get; set; }
     }
 }

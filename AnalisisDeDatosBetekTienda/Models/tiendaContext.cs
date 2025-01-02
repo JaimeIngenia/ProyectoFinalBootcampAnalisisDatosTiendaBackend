@@ -32,6 +32,10 @@ namespace AnalisisDeDatosBetekTienda.Models
         public virtual DbSet<TipoMovimiento> TipoMovimientos { get; set; } = null!;
         public virtual DbSet<Usuario> Usuarios { get; set; } = null!;
         public virtual DbSet<Ventum> Venta { get; set; } = null!;
+        public virtual DbSet<TipoDocumento> TipoDocumentos { get; set; } = null!;
+        public virtual DbSet<Proveedor> Proveedores { get; set; } = null!;
+        public virtual DbSet<Compra> Compras { get; set; } = null!;
+        public virtual DbSet<DetalleCompra> DetalleCompras { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -252,7 +256,8 @@ namespace AnalisisDeDatosBetekTienda.Models
                     .HasMaxLength(1000)
                     .HasColumnName("imagen");
 
-                //entity.Property(e => e.Stock).HasColumnName("stock");
+                entity.Property(e => e.StockActual) // Nueva propiedad
+                    .HasColumnName("stockActual");
 
                 entity.HasOne(d => d.Categoria)
                     .WithMany(p => p.Productos)
@@ -394,6 +399,113 @@ namespace AnalisisDeDatosBetekTienda.Models
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__venta__clienteId__31EC6D26");
             });
+
+            modelBuilder.Entity<TipoDocumento>(entity =>
+            {
+                entity.ToTable("tipoDocumento");
+
+                entity.Property(e => e.Id)
+                    .HasDefaultValueSql("NEWID()") // Usar GUID
+                    .HasColumnName("id");
+
+                entity.Property(e => e.Nombre)
+                    .HasMaxLength(45)
+                    .HasColumnName("nombre");
+            });
+
+            modelBuilder.Entity<Proveedor>(entity =>
+            {
+                entity.ToTable("proveedor");
+
+                entity.Property(e => e.Id)
+                    .HasDefaultValueSql("NEWID()") // Usar GUID
+                    .HasColumnName("id");
+
+                entity.Property(e => e.Nombre)
+                    .HasMaxLength(45)
+                    .HasColumnName("nombre");
+
+                entity.Property(e => e.TipoDocumentoId).HasColumnName("tipoDocumentoId");
+
+                entity.Property(e => e.Telefono)
+                    .HasMaxLength(45)
+                    .HasColumnName("telefono");
+
+                entity.Property(e => e.Correo)
+                    .HasMaxLength(45)
+                    .HasColumnName("correo");
+
+                entity.HasOne(d => d.TipoDocumento)
+                    .WithMany(p => p.Proveedores)
+                    .HasForeignKey(d => d.TipoDocumentoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__proveedor__tipoDo__4D94879B");
+            });
+
+            modelBuilder.Entity<Compra>(entity =>
+            {
+                entity.ToTable("compra");
+
+                entity.Property(e => e.Id)
+                    .HasDefaultValueSql("NEWID()") // Usar GUID
+                    .HasColumnName("id");
+
+                entity.Property(e => e.ProveedorId).HasColumnName("proveedorId");
+
+                entity.Property(e => e.Iva)
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("iva");
+
+                entity.Property(e => e.PrecioNeto)
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("precioNeto");
+
+                entity.Property(e => e.Imagen)
+                    .HasMaxLength(1000)
+                    .HasColumnName("imagen");
+
+                entity.HasOne(d => d.Proveedor)
+                    .WithMany(p => p.Compras)
+                    .HasForeignKey(d => d.ProveedorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__compra__proveedor__4E88ABD4");
+            });
+
+            modelBuilder.Entity<DetalleCompra>(entity =>
+            {
+                entity.ToTable("detalleCompra");
+
+                entity.Property(e => e.Id)
+                    .HasDefaultValueSql("NEWID()") // Usar GUID
+                    .HasColumnName("id");
+
+                entity.Property(e => e.CompraId).HasColumnName("compraId");
+
+                entity.Property(e => e.ProductoId).HasColumnName("productoId");
+
+                entity.Property(e => e.Cantidad).HasColumnName("cantidad");
+
+                entity.Property(e => e.PrecioNeto)
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("precioNeto");
+
+                entity.Property(e => e.Iva)
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("iva");
+
+                entity.HasOne(d => d.Compra)
+                    .WithMany(p => p.DetalleCompras)
+                    .HasForeignKey(d => d.CompraId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__detalleCom__compra__4F7CD00D");
+
+                entity.HasOne(d => d.Producto)
+                    .WithMany(p => p.DetalleCompras)
+                    .HasForeignKey(d => d.ProductoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__detalleCom__produ__5070F446");
+            });
+
 
             OnModelCreatingPartial(modelBuilder);
         }
