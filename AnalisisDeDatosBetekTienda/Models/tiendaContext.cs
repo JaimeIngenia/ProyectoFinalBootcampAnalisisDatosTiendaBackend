@@ -246,6 +246,10 @@ namespace AnalisisDeDatosBetekTienda.Models
 
                 entity.Property(e => e.CategoriaId).HasColumnName("categoriaId");
 
+                entity.Property(e => e.Nombre)
+                 .HasMaxLength(45)
+                 .HasColumnName("nombre");
+
                 entity.Property(e => e.Descripcion)
                     .HasMaxLength(100)
                     .HasColumnName("descripcion");
@@ -258,6 +262,11 @@ namespace AnalisisDeDatosBetekTienda.Models
 
                 entity.Property(e => e.StockActual) // Nueva propiedad
                     .HasColumnName("stockActual");
+
+                 entity.Property(e => e.PorcentajeGanancia)
+                    .IsRequired(false) // Campo opcional
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("porcentajeGanancia");
 
                 entity.HasOne(d => d.Categoria)
                     .WithMany(p => p.Productos)
@@ -479,17 +488,21 @@ namespace AnalisisDeDatosBetekTienda.Models
 
                 entity.Property(e => e.ProveedorId).HasColumnName("proveedorId");
 
-                entity.Property(e => e.Iva)
-                    .HasColumnType("decimal(10, 2)")
-                    .HasColumnName("iva");
+                //entity.Property(e => e.Iva)
+                //    .HasColumnType("decimal(10, 2)")
+                //    .HasColumnName("iva");
 
-                entity.Property(e => e.PrecioNeto)
-                    .HasColumnType("decimal(10, 2)")
-                    .HasColumnName("precioNeto");
+                //entity.Property(e => e.PrecioNeto)
+                //    .HasColumnType("decimal(10, 2)")
+                //    .HasColumnName("precioNeto");
 
                 entity.Property(e => e.Imagen)
                     .HasMaxLength(1000)
                     .HasColumnName("imagen");
+
+                entity.Property(e => e.Fecha)
+                    .HasColumnType("date")
+                    .HasColumnName("fecha"); // Nueva configuración
 
                 entity.HasOne(d => d.Proveedor)
                     .WithMany(p => p.Compras)

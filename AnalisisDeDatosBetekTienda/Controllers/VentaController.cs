@@ -158,24 +158,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
 
 
 
-        //  Delete VENTA
 
-
-        //[HttpDelete]
-        //[Route("DeleteVenta/{id}")]
-        //public async Task<IActionResult> DeleteVenta(Guid id)
-        //{
-        //    var venta = await _DBContext.Venta.FindAsync(id);
-        //    if (venta == null)
-        //    {
-        //        return NotFound(new { message = "Venta no encontrada" });
-        //    }
-
-        //    _DBContext.Venta.Remove(venta);
-        //    await _DBContext.SaveChangesAsync();
-
-        //    return Ok(new { message = "Venta eliminada exitosamente" });
-        //}
 
         [HttpDelete]
         [Route("DeleteVenta/{id}")]
@@ -199,7 +182,24 @@ namespace AnalisisDeDatosBetekTienda.Controllers
             return Ok(new { message = "Venta y detalles de venta eliminados exitosamente" });
         }
 
+        //  Delete VENTA
 
+
+        //[HttpDelete]
+        //[Route("DeleteVenta/{id}")]
+        //public async Task<IActionResult> DeleteVenta(Guid id)
+        //{
+        //    var venta = await _DBContext.Venta.FindAsync(id);
+        //    if (venta == null)
+        //    {
+        //        return NotFound(new { message = "Venta no encontrada" });
+        //    }
+
+        //    _DBContext.Venta.Remove(venta);
+        //    await _DBContext.SaveChangesAsync();
+
+        //    return Ok(new { message = "Venta eliminada exitosamente" });
+        //}
 
 
 

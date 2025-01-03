@@ -22,6 +22,8 @@ namespace AnalisisDeDatosBetekTienda.Models
 
         public int? StockActual { get; set; } // Nueva propiedad
 
+        public decimal? PorcentajeGanancia { get; set; } // Nueva propiedad
+
         public virtual Categorium Categoria { get; set; } = null!;
         public virtual ICollection<DetalleVentum> DetalleVenta { get; set; }
 
