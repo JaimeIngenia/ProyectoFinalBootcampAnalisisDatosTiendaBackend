@@ -340,11 +340,21 @@ namespace AnalisisDeDatosBetekTienda.Models
                     .IsRequired()
                     .HasColumnName("contrasena"); // Cambia el nombre de columna si es necesario
 
+                //entity.Property(e => e.EmpleadoId)
+                //    .HasColumnName("empleadoId");
                 entity.Property(e => e.EmpleadoId)
+                    .IsRequired(false) // Cambiado a nullable
                     .HasColumnName("empleadoId");
 
+                //entity.Property(e => e.RolId)
+                //    .HasColumnName("rolId");
                 entity.Property(e => e.RolId)
+                    .IsRequired(false) // Cambiado a nullable
                     .HasColumnName("rolId");
+
+                entity.Property(e => e.SucursalId)
+                   .IsRequired(false) // Cambiado a nullable
+                   .HasColumnName("sucursalId");
 
                 // Nuevo campo obligatorio para el correo
                 entity.Property(e => e.Correo)
@@ -366,17 +376,34 @@ namespace AnalisisDeDatosBetekTienda.Models
                     .IsRequired(false) // Campo opcional
                     .HasColumnName("imagen");
 
+                //entity.HasOne(d => d.Empleado)
+                //    .WithMany(p => p.Usuarios)
+                //    .HasForeignKey(d => d.EmpleadoId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__usuario__emplead__38996AB5");
+
+                //entity.HasOne(d => d.Rol)
+                //    .WithMany(p => p.Usuarios)
+                //    .HasForeignKey(d => d.RolId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__usuario__rolId__398D8EEE");
                 entity.HasOne(d => d.Empleado)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.EmpleadoId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.SetNull) // Cambiado a SetNull
                     .HasConstraintName("FK__usuario__emplead__38996AB5");
 
                 entity.HasOne(d => d.Rol)
                     .WithMany(p => p.Usuarios)
                     .HasForeignKey(d => d.RolId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .OnDelete(DeleteBehavior.SetNull) // Cambiado a SetNull
                     .HasConstraintName("FK__usuario__rolId__398D8EEE");
+
+                entity.HasOne(d => d.Sucursal)
+                    .WithMany(p => p.Usuarios)
+                    .HasForeignKey(d => d.SucursalId)
+                    .OnDelete(DeleteBehavior.SetNull) // Cambiado a SetNull
+                    .HasConstraintName("FK__usuario__sucurs__3A81B327");
             });
 
             modelBuilder.Entity<Ventum>(entity =>

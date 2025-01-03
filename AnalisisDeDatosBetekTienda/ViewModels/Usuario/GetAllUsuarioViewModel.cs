@@ -11,9 +11,9 @@
         public TimeSpan? TiempoSesionActivo { get; set; }
 
         public string? Imagen { get; set; }
-        public Guid EmpleadoId { get; set; }
-        public Guid RolId { get; set; }
-        public Guid SucursalId { get; set; }
+        public Guid? EmpleadoId { get; set; }
+        public Guid? RolId { get; set; }
+        public Guid? SucursalId { get; set; }
 
         // Agrega propiedades adicionales si es necesario
     
