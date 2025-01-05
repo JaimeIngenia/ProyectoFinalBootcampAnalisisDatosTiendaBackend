@@ -40,12 +40,15 @@ namespace AnalisisDeDatosBetekTienda.Controllers
 
             var producto = new Producto
             {
-                Id = Guid.NewGuid(), // Generar un nuevo GUID para el producto
+                //Id = Guid.NewGuid(), // Generar un nuevo GUID para el producto
+                Id = model.Id, // Usar el GUID generado en el frontend
                 Nombre = model.Nombre,
                 Descripcion = model.Descripcion,
                 //Precio = model.Precio,
                 CategoriaId = model.CategoriaId,
-                Imagen = model.Imagen
+                Imagen = model.Imagen,
+                StockActual = model.StockActual,
+                PorcentajeGanancia = model.PorcentajeGanancia
             };
 
             _DBContext.Productos.Add(producto);
