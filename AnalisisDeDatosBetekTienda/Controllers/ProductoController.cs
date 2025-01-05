@@ -70,6 +70,10 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     Nombre = p.Nombre,
                     Descripcion = p.Descripcion,
                     //Precio = p.Precio,
+                    Precio = _DBContext.Precios
+                        .Where(pr => pr.ProductoId == p.Id )
+                        .Select(pr => pr.PrecioVenta)
+                        .FirstOrDefault(),
                     CategoriaNombre = p.Categoria.Nombre,
                     Imagen = p.Imagen
                 })
