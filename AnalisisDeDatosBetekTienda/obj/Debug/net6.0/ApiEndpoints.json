@@ -357,6 +357,22 @@
   },
   {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.PrecioController",
+    "Method": "GetPrecioByProductId",
+    "RelativePath": "api/Precio/GetPrecioByProductId/{productoId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "productoId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.PrecioController",
     "Method": "SavePrecio",
     "RelativePath": "api/Precio/SavePrecio",
     "HttpMethod": "POST",
@@ -366,6 +382,27 @@
       {
         "Name": "model",
         "Type": "AnalisisDeDatosBetekTienda.ViewModels.Precio.SavePrecioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.PrecioController",
+    "Method": "UpdatePrecio",
+    "RelativePath": "api/Precio/UpdatePrecio/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Precio.UpdatePrecioViewModel",
         "IsRequired": true
       }
     ],
