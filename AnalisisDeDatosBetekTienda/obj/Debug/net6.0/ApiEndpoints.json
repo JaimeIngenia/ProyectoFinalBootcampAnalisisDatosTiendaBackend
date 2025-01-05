@@ -356,6 +356,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.PrecioController",
+    "Method": "SavePrecio",
+    "RelativePath": "api/Precio/SavePrecio",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "AnalisisDeDatosBetekTienda.ViewModels.Precio.SavePrecioViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "AnalisisDeDatosBetekTienda.Controllers.ProductoController",
     "Method": "DeleteProducto",
     "RelativePath": "api/Producto/DeleteProducto/{id}",

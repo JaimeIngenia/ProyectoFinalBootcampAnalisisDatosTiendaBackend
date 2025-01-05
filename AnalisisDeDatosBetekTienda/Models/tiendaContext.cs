@@ -26,6 +26,7 @@ namespace AnalisisDeDatosBetekTienda.Models
         public virtual DbSet<Membresium> Membresia { get; set; } = null!;
         public virtual DbSet<MovimientoInventario> MovimientoInventarios { get; set; } = null!;
         public virtual DbSet<Producto> Productos { get; set; } = null!;
+        public virtual DbSet<Precio> Precios { get; set; } = null!;
         public virtual DbSet<Puesto> Puestos { get; set; } = null!;
         public virtual DbSet<Rol> Rols { get; set; } = null!;
         public virtual DbSet<Sucursal> Sucursals { get; set; } = null!;
