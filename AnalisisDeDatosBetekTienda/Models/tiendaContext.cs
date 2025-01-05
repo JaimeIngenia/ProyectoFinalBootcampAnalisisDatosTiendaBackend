@@ -96,6 +96,13 @@ namespace AnalisisDeDatosBetekTienda.Models
 
                 entity.Property(e => e.VentaId).HasColumnName("ventaId");
 
+                entity.Property(e => e.PrecioId).HasColumnName("precioId"); // Nuevo campo
+
+                entity.Property(e => e.PrecioUnitario)
+                    .IsRequired(false) // Campo opcional
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("precioUnitario"); // Nuevo campo
+
                 entity.HasOne(d => d.Producto)
                     .WithMany(p => p.DetalleVenta)
                     .HasForeignKey(d => d.ProductoId)
@@ -107,6 +114,13 @@ namespace AnalisisDeDatosBetekTienda.Models
                     .HasForeignKey(d => d.VentaId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__detalleVe__venta__37A5467C");
+
+                entity.HasOne(d => d.Precio)
+                    .WithMany(p => p.DetalleVenta)
+                    .HasForeignKey(d => d.PrecioId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__detalleVe__precioId__38996AB5");
+
             });
 
             modelBuilder.Entity<Empleado>(entity =>
@@ -254,7 +268,7 @@ namespace AnalisisDeDatosBetekTienda.Models
                     .HasMaxLength(100)
                     .HasColumnName("descripcion");
 
-                entity.Property(e => e.Precio).HasColumnName("precio");
+                //entity.Property(e => e.Precio).HasColumnName("precio");
 
                 entity.Property(e => e.Imagen) // Mapea la columna imagen
                     .HasMaxLength(1000)
@@ -523,13 +537,19 @@ namespace AnalisisDeDatosBetekTienda.Models
 
                 entity.Property(e => e.ProductoId).HasColumnName("productoId");
 
+                entity.Property(e => e.PrecioId)
+                .IsRequired(false) // Campo opcional
+                .HasColumnName("precioId"); // Nuevo campo
+
                 entity.Property(e => e.Cantidad).HasColumnName("cantidad");
 
-                entity.Property(e => e.PrecioNeto)
+                entity.Property(e => e.PrecioUnitario)
+                .IsRequired(false) // Campo opcional
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("precioNeto");
 
                 entity.Property(e => e.Iva)
+                    .IsRequired(false) // Campo opcional
                     .HasColumnType("decimal(10, 2)")
                     .HasColumnName("iva");
 
@@ -544,6 +564,50 @@ namespace AnalisisDeDatosBetekTienda.Models
                     .HasForeignKey(d => d.ProductoId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK__detalleCom__produ__5070F446");
+
+                entity.HasOne(d => d.Precio)
+                    .WithMany(p => p.DetalleCompras)
+                    .HasForeignKey(d => d.PrecioId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__detalleCom__precioId__5165187F");
+
+            });
+
+            modelBuilder.Entity<Precio>(entity =>
+            {
+                entity.ToTable("precio");
+
+                entity.Property(e => e.Id)
+                    .HasDefaultValueSql("NEWID()") // Usar GUID
+                    .HasColumnName("id");
+
+                entity.Property(e => e.ProductoId).HasColumnName("productoId");
+
+                entity.Property(e => e.FechaInicio)
+                    .IsRequired(false)
+                    .HasColumnType("date")
+                    .HasColumnName("fechaInicio");
+
+                entity.Property(e => e.FechaFin)
+                    .IsRequired(false)
+                    .HasColumnType("date")
+                    .HasColumnName("fechaFin");
+
+                entity.Property(e => e.PrecioCompra)
+                    .IsRequired(false)
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("precioCompra");
+
+                entity.Property(e => e.PrecioVenta)
+                    .IsRequired(false)
+                    .HasColumnType("decimal(10, 2)")
+                    .HasColumnName("precioVenta");
+
+                entity.HasOne(d => d.Producto)
+                    .WithMany(p => p.Precios)
+                    .HasForeignKey(d => d.ProductoId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__precio__productoId__5165187F");
             });
 
 

@@ -84,7 +84,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                         Id = d.Producto.Id,
                         Nombre = d.Producto.Nombre,
                         Descripcion = d.Producto.Descripcion,
-                        Precio = d.Producto.Precio,
+                        //Precio = d.Producto.Precio,
                         Categoria = new CategoriaViewModelVersionOne
                         {
                             Id = d.Producto.Categoria.Id,
@@ -143,7 +143,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                         Id = d.Producto.Id,
                         Nombre = d.Producto.Nombre,
                         Descripcion = d.Producto.Descripcion,
-                        Precio = d.Producto.Precio,
+                        //Precio = d.Producto.Precio,
                         Categoria = new CategoriaViewModelVersionOne
                         {
                             Id = d.Producto.Categoria.Id,
@@ -278,7 +278,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     Cantidad = d.Cantidad,
                     Producto = new ProductoSpecialViewModel
                     {
-                        Precio = d.Producto.Precio,
+                        //Precio = d.Producto.Precio,
                         Nombre = d.Producto.Nombre
                     }
                 })
@@ -305,7 +305,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     Cantidad = d.Cantidad,
                     Producto = new ProductoSpecialViewModel
                     {
-                        Precio = d.Producto.Precio,
+                        //Precio = d.Producto.Precio,
                         Nombre = d.Producto.Nombre
                     }
                 })

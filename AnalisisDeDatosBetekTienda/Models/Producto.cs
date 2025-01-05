@@ -9,13 +9,15 @@ namespace AnalisisDeDatosBetekTienda.Models
         {
             DetalleVenta = new HashSet<DetalleVentum>();
             MovimientoInventarios = new HashSet<MovimientoInventario>();
+            DetalleCompras = new HashSet<DetalleCompra>();
+            Precios = new HashSet<Precio>();
         }
 
         //public int Id { get; set; }
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Nombre { get; set; } = null!;
         public string Descripcion { get; set; } = null!;
-        public int Precio { get; set; }
+        //public int Precio { get; set; }
         //public int CategoriaId { get; set; }
         public Guid CategoriaId { get; set; }
         public string? Imagen { get; set; }
@@ -26,8 +28,8 @@ namespace AnalisisDeDatosBetekTienda.Models
 
         public virtual Categorium Categoria { get; set; } = null!;
         public virtual ICollection<DetalleVentum> DetalleVenta { get; set; }
-
         public virtual ICollection<DetalleCompra> DetalleCompras { get; set; }
         public virtual ICollection<MovimientoInventario> MovimientoInventarios { get; set; }
+        public virtual ICollection<Precio> Precios { get; set; }  // Nueva relacion
     }
 }

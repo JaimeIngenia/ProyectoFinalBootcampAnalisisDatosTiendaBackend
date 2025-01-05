@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnalisisDeDatosBetekTienda")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a53d7319fe642ed3b83c588e909d9c8972ce65c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ddd5e6837f625f9536e0c396d47d55c81160d202")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnalisisDeDatosBetekTienda")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnalisisDeDatosBetekTienda")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

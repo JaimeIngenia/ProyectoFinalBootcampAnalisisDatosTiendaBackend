@@ -43,7 +43,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                 Id = Guid.NewGuid(), // Generar un nuevo GUID para el producto
                 Nombre = model.Nombre,
                 Descripcion = model.Descripcion,
-                Precio = model.Precio,
+                //Precio = model.Precio,
                 CategoriaId = model.CategoriaId,
                 Imagen = model.Imagen
             };
@@ -66,7 +66,7 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                     Id = p.Id,
                     Nombre = p.Nombre,
                     Descripcion = p.Descripcion,
-                    Precio = p.Precio,
+                    //Precio = p.Precio,
                     CategoriaNombre = p.Categoria.Nombre,
                     Imagen = p.Imagen
                 })
@@ -128,7 +128,8 @@ namespace AnalisisDeDatosBetekTienda.Controllers
             // Actualizar las propiedades del producto
             producto.Nombre = model.Nombre;
             producto.Descripcion = model.Descripcion;
-            producto.Precio = model.Precio;
+            //producto.
+            //    Precio = model.Precio;
             producto.CategoriaId = model.CategoriaId;
             producto.Imagen = model.Imagen;
 
@@ -138,6 +139,39 @@ namespace AnalisisDeDatosBetekTienda.Controllers
             return Ok(new { message = "Producto actualizado exitosamente" });
         }
 
+
+
+    
+        [HttpGet]
+        [Route("GetProductById/{id}")]
+        public async Task<IActionResult> GetProductById(Guid id)
+        {
+            // Buscar el producto en la base de datos por su ID
+            var producto = await _DBContext.Productos
+                .Include(p => p.Categoria) // Incluir la relación con la categoría
+                .Select(p => new GetByIdProductoViewModel // Usar el nuevo ViewModel
+                {
+                    Id = p.Id,
+                    Nombre = p.Nombre,
+                    Descripcion = p.Descripcion,
+                    //Precio = p.Precio,
+                    Categoria = new GetAllCategoriaViewModel
+                    {
+                        Id = p.Categoria.Id,
+                        Nombre = p.Categoria.Nombre
+                    },
+                    Imagen = p.Imagen
+                })
+                .FirstOrDefaultAsync(p => p.Id == id);
+
+            // Verificar si el producto existe
+            if (producto == null)
+            {
+                return NotFound(new { message = "Producto no encontrado" });
+            }
+
+            return Ok(producto);
+        }
 
 
         // Método para obtener un producto por su ID
@@ -166,38 +200,6 @@ namespace AnalisisDeDatosBetekTienda.Controllers
 
         //    return Ok(producto);
         //}
-        [HttpGet]
-        [Route("GetProductById/{id}")]
-        public async Task<IActionResult> GetProductById(Guid id)
-        {
-            // Buscar el producto en la base de datos por su ID
-            var producto = await _DBContext.Productos
-                .Include(p => p.Categoria) // Incluir la relación con la categoría
-                .Select(p => new GetByIdProductoViewModel // Usar el nuevo ViewModel
-                {
-                    Id = p.Id,
-                    Nombre = p.Nombre,
-                    Descripcion = p.Descripcion,
-                    Precio = p.Precio,
-                    Categoria = new GetAllCategoriaViewModel
-                    {
-                        Id = p.Categoria.Id,
-                        Nombre = p.Categoria.Nombre
-                    },
-                    Imagen = p.Imagen
-                })
-                .FirstOrDefaultAsync(p => p.Id == id);
-
-            // Verificar si el producto existe
-            if (producto == null)
-            {
-                return NotFound(new { message = "Producto no encontrado" });
-            }
-
-            return Ok(producto);
-        }
-
-     
 
 
 
