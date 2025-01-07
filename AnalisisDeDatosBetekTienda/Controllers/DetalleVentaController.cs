@@ -46,12 +46,25 @@ namespace AnalisisDeDatosBetekTienda.Controllers
                 return NotFound(new { message = "Venta no encontrada" });
             }
 
+            // Verificar si el Precio existe
+            var precio = await _DBContext.Precios
+           .Where(p => p.ProductoId == model.ProductoId) // Relación con ProductoId
+           .OrderByDescending(p => p.FechaInicio) // Supongamos que FechaInicio determina el precio vigente
+           .FirstOrDefaultAsync();
+
+            if (precio == null)
+            {
+                return NotFound(new { message = "No se encontró un precio válido para el producto" });
+            }
+
             var detalleVenta = new DetalleVentum
             {
                 Id = Guid.NewGuid(),
                 Cantidad = model.Cantidad,
                 ProductoId = model.ProductoId,
-                VentaId = model.VentaId
+                VentaId = model.VentaId,
+                PrecioId = precio.Id, // Nuevo campo
+                PrecioUnitario = precio.PrecioVenta // Obtener el precio de venta desde la tabla Precio
             };
 
             _DBContext.DetalleVenta.Add(detalleVenta);
